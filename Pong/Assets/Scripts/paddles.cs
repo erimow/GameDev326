@@ -6,8 +6,14 @@ public class paddles : MonoBehaviour
 {
     public float moveSpeed = 5f; 
     public float maxVelocity = 10f; 
+    public bool left = false;
+    public bool right = false;
+    public bool npc = false;
+    public GameObject ball;
 
     private Rigidbody rb;
+    private float moveInput = 0.0f;
+    private float dir = 0;
 
     void Start()
     {
@@ -17,14 +23,32 @@ public class paddles : MonoBehaviour
 
     void FixedUpdate()
     {
-        float moveInput = Input.GetAxisRaw("Vertical");
+        if (left)
+            moveInput = Input.GetAxisRaw("Vertical");
+        else if (right)
+            moveInput = Input.GetAxisRaw("AKeys");
+        
         Vector3 moveVelocity = rb.velocity;
-
-        if (Mathf.Abs(moveVelocity.y) < maxVelocity)
+        if(!npc)
         {
-            moveVelocity.y += moveInput * moveSpeed;
+            if (Mathf.Abs(moveVelocity.y) < maxVelocity)
+            {
+                moveVelocity.y += moveInput * moveSpeed;
+            }  
         }
+        else
+        {
+            float ballY = ball.transform.position.y;
+            if (ballY > this.transform.position.y)
+                dir = 1;
+            else
+                dir = -1;
 
+            if (Mathf.Abs(moveVelocity.y) < maxVelocity)
+            {
+                moveVelocity.y += dir * moveSpeed;
+            }
+        }
         rb.velocity = moveVelocity;
     }
 }
