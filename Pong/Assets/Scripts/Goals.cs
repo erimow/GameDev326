@@ -10,6 +10,9 @@ public class Goals : MonoBehaviour
     public GameObject gameOver;
     public bool left = false;
     public bool right = false;
+    public float red = 0.0f;
+    public float blue = 0.0f;
+    public float green = 0.0f;
 
     void Update()
     {
@@ -26,12 +29,16 @@ public class Goals : MonoBehaviour
         {
             score++;
             textBox.text = score.ToString();
-            
+            textBox.color = new Color(red+.5f%1.0f, green%1.0f, blue%1.0f, 1.0f);
+            red+=.1909f;
+            green+=.12f;
+            blue+=.33f;
             //Reset Pos
             other.gameObject.transform.position = new Vector3(0f, 1f, 1.5f);
 
             // Reset Speed
             other.gameObject.GetComponent<ball>().moveSpeed = 5f;
+            other.gameObject.GetComponent<ball>().audioSource.pitch = 1f;
 
             if(left)
                 print("Right scored | Now has : " + score + " points.");

@@ -8,6 +8,8 @@ TagManager:
   - Right
   - Paddle
   - Wall
+  - reverse
+  - fast
   layers:
   - Default
   - TransparentFX

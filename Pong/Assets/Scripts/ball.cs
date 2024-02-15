@@ -7,11 +7,16 @@ public class ball : MonoBehaviour
     public float moveSpeed = 5f; 
     public float speedIncrement = 2f;
     private Rigidbody rb;
+    public AudioSource audioSource;
+    public AudioClip paddleHitSound;
+    public AudioClip wallHitSound;
+    public GameObject leftPaddle;
+    public GameObject rightPaddle;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
+        audioSource = GetComponent<AudioSource>();
         float direction = Random.value > 0.5f ? 1f : -1f;
 
         float angle = Random.Range(-45f, 45f) * Mathf.Deg2Rad;
@@ -37,12 +42,46 @@ public class ball : MonoBehaviour
             Vector3 newDirection = new Vector3(Mathf.Sign(rb.velocity.x) * Mathf.Cos(angle), Mathf.Sin(angle), 0f);
             rb.velocity = newDirection.normalized * -moveSpeed;
             moveSpeed += speedIncrement;
+            audioSource.PlayOneShot(paddleHitSound);
+            float pit = Mathf.Clamp(moveSpeed/5f, 1f, 4f);
+            audioSource.pitch += .1f;
+
         }
         else if (collision.gameObject.CompareTag("Wall"))
         {
             Vector3 newDirection = rb.velocity;
             newDirection.y *= -1;
             rb.velocity = newDirection.normalized * moveSpeed;
+            audioSource.PlayOneShot(wallHitSound);
+        }
+
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("reverse"))
+                {
+                    if (rb.velocity.x > 0)
+                    {
+                        rightPaddle.GetComponent<paddles>().moveSpeed*=-1;
+                    }
+                    else
+                    {
+                        leftPaddle.GetComponent<paddles>().moveSpeed*=-1;
+                    }
+                    Destroy(other.gameObject);
+                }
+        if (other.gameObject.CompareTag("fast"))
+        {
+            if (rb.velocity.x < 0)
+                    {
+                        rightPaddle.GetComponent<paddles>().moveSpeed*=2;
+                    }
+                    else
+                    {
+                        leftPaddle.GetComponent<paddles>().moveSpeed*=2;
+                    }
+                    Destroy(other.gameObject);
         }
     }
+
 }

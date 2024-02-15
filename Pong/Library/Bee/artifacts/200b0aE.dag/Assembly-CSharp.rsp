@@ -354,6 +354,8 @@
 "Assets/Scripts/gameOver.cs"
 "Assets/Scripts/Goals.cs"
 "Assets/Scripts/paddles.cs"
+"Assets/Scripts/powerUpControls.cs"
+"Assets/Scripts/rotate.cs"
 -langversion:9.0
 
 /deterministic

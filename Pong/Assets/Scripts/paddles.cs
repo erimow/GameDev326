@@ -14,6 +14,7 @@ public class paddles : MonoBehaviour
     private Rigidbody rb;
     private float moveInput = 0.0f;
     private float dir = 0;
+    private int frame = 0;
 
     void Start()
     {
@@ -50,5 +51,23 @@ public class paddles : MonoBehaviour
             }
         }
         rb.velocity = moveVelocity;
+        if(moveSpeed<0f)
+        {
+            if (frame%150==149)
+            {
+                moveSpeed = 5f;
+            }
+            frame++;
+            print(frame%150);
+        }
+        else if(moveSpeed>5f)
+        {
+            if (frame%150==149)
+            {
+                moveSpeed = 5f;
+            }
+            frame++;
+            print(frame%150);
+        }
     }
 }
