@@ -20,13 +20,18 @@ public class CursorDestroyer : MonoBehaviour
             {
                 GameObject hitObject = hit.collider.gameObject;
 
-                if (hitObject.CompareTag("Finish")){
+                if (hitObject.CompareTag("Brick")){
                     Destroy(hitObject);
                     Debug.Log("Object broken: " + hitObject.name);
+                    
+
+                }
+                else if (hitObject.CompareTag("?"))
+                {
                     coins++;
                     coinText.text = "x" + coins.ToString("D2");
-
-                } 
+                    Debug.Log("Object hit: " + hitObject.name);
+                }
             } 
         }
     } 
