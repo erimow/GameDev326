@@ -11,6 +11,9 @@ public class LevelParser : MonoBehaviour
     public GameObject stonePrefab;
     public Transform environmentRoot;
 
+    public GameObject polePrefab;
+
+    public GameObject goombaPrefab;
     // --------------------------------------------------------------------------
     void Start()
     {
@@ -76,6 +79,14 @@ public class LevelParser : MonoBehaviour
                 else if (letter == 's')
                 {
                      Instantiate(stonePrefab, newPos, Quaternion.identity, environmentRoot);
+                }
+                else if (letter == '|')
+                {
+                    Instantiate(polePrefab, newPos, Quaternion.identity, environmentRoot);
+                }
+                else if (letter == 'g')
+                {
+                    Instantiate(goombaPrefab, newPos, Quaternion.identity, environmentRoot);
                 }
                 
                 //column++;

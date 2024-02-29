@@ -51,6 +51,7 @@
     <Compile Include="Assets/Platformer/Scripts/CursorDestroyer.cs" />
     <Compile Include="Assets/CharacterController.cs" />
     <Compile Include="Assets/Platformer/Scripts/CameraMover.cs" />
+    <None Include="Assets/Resources/Test2.txt" />
     <None Include="Assets/Resources/Test.txt" />
     <Reference Include="UnityEngine">
       <HintPath>/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -667,6 +668,9 @@
     <Reference Include="mscorlib">
       <HintPath>/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/mscorlib.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>/Users/erik/Unity/platformer/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>/Users/erik/Unity/platformer/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
@@ -678,9 +682,6 @@
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>/Users/erik/Unity/platformer/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>/Users/erik/Unity/platformer/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
