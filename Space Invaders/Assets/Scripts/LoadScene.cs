@@ -8,7 +8,7 @@ public class LoadScene : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
     }
 
     void Start()
@@ -35,5 +35,15 @@ public class LoadScene : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Play() 
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits");
     }
 }

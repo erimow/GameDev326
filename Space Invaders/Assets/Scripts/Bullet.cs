@@ -40,26 +40,30 @@ public class Bullet : MonoBehaviour
         {
             GameObject.FindWithTag("GameController").GetComponent<ScoreController>().Score += 10;
             enemyController.GetComponent<EnemyController>().enemiesKilled++;
-            Destroy(other.gameObject);
+            other.GetComponent<EnemyShooter>().triggerDie();
+            //Destroy(other.gameObject);
             Destroy(this.gameObject);
         }
         else if (other.gameObject.CompareTag("Enemy2") && !isEnemy)
         {
             GameObject.FindWithTag("GameController").GetComponent<ScoreController>().Score += 20;
             enemyController.GetComponent<EnemyController>().enemiesKilled++;
-            Destroy(other.gameObject);
+            other.GetComponent<EnemyShooter>().triggerDie();
+            //Destroy(other.gameObject);
             Destroy(this.gameObject);
         }
         else if (other.gameObject.CompareTag("Enemy3") && !isEnemy)
         {
             GameObject.FindWithTag("GameController").GetComponent<ScoreController>().Score += 30;
+            other.GetComponent<EnemyShooter>().triggerDie();
             enemyController.GetComponent<EnemyController>().enemiesKilled++;
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
             Destroy(this.gameObject);
         }
         else if (other.gameObject.CompareTag("UFO") && !isEnemy)
         {
             GameObject.FindWithTag("GameController").GetComponent<ScoreController>().Score += 100;
+            
             Destroy(other.gameObject);
             Destroy(this.gameObject);
         }
@@ -70,7 +74,7 @@ public class Bullet : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Player") && isEnemy)
         {
-            Destroy(other.gameObject);
+            other.GetComponent<PlayerController>().triggerDie();
             Destroy(this.gameObject);
         }
 

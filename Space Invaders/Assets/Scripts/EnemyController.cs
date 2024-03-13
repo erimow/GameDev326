@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyController : MonoBehaviour
 {
@@ -42,6 +43,10 @@ public class EnemyController : MonoBehaviour
             movingRight = true;
         }
         CancelInvoke(nameof(Move));
+        if (enemiesKilled >= 55)
+        {
+            SceneManager.LoadScene("Credits");
+        }
         InvokeRepeating(nameof(Move), moveDelay-(enemiesKilled*delayDecrease), moveDelay-(enemiesKilled*delayDecrease));
     }
 }

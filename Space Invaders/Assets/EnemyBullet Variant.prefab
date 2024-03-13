@@ -76,6 +76,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8341767210645916348, guid: f651335b6eb174d629fd3bb0f24ef572, type: 3}
+      propertyPath: prewarm
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8341767210645916348, guid: f651335b6eb174d629fd3bb0f24ef572, type: 3}
+      propertyPath: ShapeModule.m_Rotation.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8341767210645916348, guid: f651335b6eb174d629fd3bb0f24ef572, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.0980392
+      objectReference: {fileID: 0}
+    - target: {fileID: 8341767210645916348, guid: f651335b6eb174d629fd3bb0f24ef572, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.13372768
+      objectReference: {fileID: 0}
+    - target: {fileID: 8341767210645916348, guid: f651335b6eb174d629fd3bb0f24ef572, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.6431373
+      objectReference: {fileID: 0}
+    - target: {fileID: 8341767210645916348, guid: f651335b6eb174d629fd3bb0f24ef572, type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
