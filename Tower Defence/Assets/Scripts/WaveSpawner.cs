@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
@@ -18,10 +19,16 @@ public class WaveSpawner : MonoBehaviour {
 
     public GameManager gameManager;
 
-    private int waveIndex = 0;
+    public int waveIndex = 0;
+
+    private void Start()
+    {
+        EnemiesAlive = 0;
+    }
 
     void Update ()
     {
+        //Debug.Log(EnemiesAlive);
         if (EnemiesAlive > 0)
         {
             return;
